@@ -9,3 +9,44 @@ ArrayList and Vector
 
 Vector is synchronized by default, and ArrayList is not. Note : you can make ArrayList also synchronized by passing arraylist object to Collections.synchronizedList() method
 ArrayLists grow by 50% of the previous size when space is not sufficient for new element, where as Vector will grow by 100% of the previous size when there is no space for new incoming element.
+
+HashSet and LinkedHashset
+
+HashSet:
+
+# The underlined data structure is Hashtable.
+# Insertion order is not preserved.
+# introduced 1.2 version.
+
+LinkedHashSet:
+
+# The underlined data structure is a combination of LinkedList and Hashtable.
+# Insertion order is preserved.
+# Indroduced in 1.4 version.
+
+
+Hashset and  Treeset 
+
+1) First major difference between HashSet and TreeSet is performance. HashSet is faster than TreeSet and should be preferred choice if sorting of element is not required.
+
+2) Second difference between HashSet and TreeSet is that HashSet allows null object but TreeSet doesn't allow null Object and throw NullPointerException, Why, because TreeSet uses compareTo() method to compare keys and compareTo() will throw java.lang.NullPointerException.
+
+3) Now most important difference between HashSet and TreeSet is ordering. HashSet doesn't guaranteed any order while TreeSet maintains objects in Sorted order defined by either Comparable or Comparator method in Java.
+
+
+HashMap and ConcurrentHashMap
+
+# HashMap is non-Synchronized in nature i.e. HashMap is not Thread-safe whereas ConcurrentHashMap is Thread-safe in nature.
+# HashMap performance is relatively high because it is non-synchronized in nature and any number of threads can perform simultaneously. But ConcurrentHashMap performance is low sometimes because sometimes Threads are required to wait on ConcurrentHashMap.
+# While one thread is Iterating the HashMap object, if other thread try to add/modify the contents of Object then we will get Run-time exception saying ConcurrentModificationException.Whereas In ConcurrentHashMap we wont get any exception while performing any modification at the time of Iteration.
+
+
+Hashmap vs Hashtable
+1. HashMap is non synchronized. It is not-thread safe and can’t be shared between many threads without proper synchronization code whereas Hashtable is synchronized. It is thread-safe and can be shared with many threads.
+2. HashMap allows one null key and multiple null values whereas Hashtable doesn’t allow any null key or value.
+3. HashMap is generally preferred over HashTable if thread synchronization is not needed
+
+Why HashTable doesn’t allow null and HashMap does?
+To successfully store and retrieve objects from a HashTable, the objects used as keys must implement the hashCode method and the equals method. Since null is not an object, it can’t implement these methods. HashMap is an advanced version and improvement on the Hashtable. HashMap was created later.
+
+
