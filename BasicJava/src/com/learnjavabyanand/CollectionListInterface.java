@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * @author Anand
 **/
-public class CollectionInterface { 
+public class CollectionListInterface { 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public static void main(String[] args) {
 	String name="Anand";
@@ -114,8 +114,57 @@ public class CollectionInterface {
 		object.set(2, "Y");
 		System.out.println("Linked list after change : " + object);
         
+		
+		/**
+		    # Vector implements a dynamic array. It is similar to ArrayList, but with two differences −
+			# Vector is synchronized.
+			# Vector contains many legacy methods that are not part of the collections framework.
+			# Vector implements a dynamic array that means it can grow or shrink as required. Like an array, 
+			# it contains components that can be accessed using an integer index
+			# They are very similar to ArrayList but Vector is synchronised and have some legacy method which collection framework does not contain.
+		 */
+		Vector vector= new Vector(9);//size of vector
+		vector.add(1);
+		vector.add(2);
+		vector.add("Anand");
+		vector.add(3);
+		vector.add(0, 1);//Add element specific to index
+        System.out.println("Vector is " + vector);
+        vector.addAll(list);
+        Vector cloneVector = (Vector)vector.clone();
+        vector.ensureCapacity(25);
+        if(vector.contains("Anand"))
+            System.out.println("Anand exists");
+        
+        
+        /**
+         *  # Stack. It is a collection that is based on the last in first out (LIFO) principle. On Creation, a stack is empty.
+            # It extends Vector class with five methods that allow a vector to be treated as a stack. 
+         */
+        Stack st = new Stack();
+        System.out.println("stack: " + st);
+        showpush(st, 42);
+        showpush(st, 66);
+        showpush(st, 99);
+        showpop(st);
+        showpop(st);
         
 	}
+	
+	static void showpush(Stack st, int a) {
+	      st.push(new Integer(a));
+	      System.out.println("push(" + a + ")");
+	      System.out.println("stack: " + st);
+	   }
+
+	   static void showpop(Stack st) {
+	      System.out.print("pop -> ");
+	      Integer a = (Integer) st.pop();
+	      System.out.println(a);
+	      System.out.println("stack: " + st);
+	   }
+	
+	
 }
 class User {
 	private int usernumber;
